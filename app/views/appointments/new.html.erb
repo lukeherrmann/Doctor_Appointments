@@ -1,0 +1,16 @@
+<h1>Add appointment</h1>
+<%= form_with(model: [@user, @appointment], local: true, class: "ui form" ) do |f| %>
+  <%= f.label :doctor %>
+  <%= f.select :doctor_id, Doctor.all.collect { |u| [u.whole_name, u.id] } %>
+  <br />
+  <%= f.label :date %>
+  <%= f.date_field :date %>
+  <br />
+  <%= f.label :time %>
+  <%= f.time_field :time %>
+  <br />
+  <%= f.label :role %>
+  <%= f.select :role, ['doctor', 'patient'] %>
+  <br />
+  <%= f.submit nil, class: "ui green button inverted" %>
+<% end %>
